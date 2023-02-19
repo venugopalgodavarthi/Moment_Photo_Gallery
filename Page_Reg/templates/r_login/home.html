@@ -1,87 +1,28 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+{% extends 'r_login/base.html'%}
+{%block contain%}
+<div class="btn">
+  {% if request.user.is_authenticated %}
+  <p class="h3 text-success">
+  <p class="text-success h3">Username : {{request.user.username}}</p>
+  <a href={% url 'Page_Reg:logout' %} type="button" class="btn"><button type="button" name="button">Log
+      Out</button></a>
+  </p>
+  {% else %}
+  <p class="text-danger h3">
+    <a href={% url 'Page_Reg:signup' %} type="button" class="btn"><button type="button" name="button">Sign
+        Up</button></a>
+    <a href={% url 'Page_Reg:login' %} type="button" class="btn"><button type="button" name="button">Log
+        In</button></a>
+    {% endif %}
+  </p>
+</div>
 
-<head>
-  <meta charset="utf-8">
-  <title>home</title>
+</div>
+</nav>
 
-  <style media="screen">
-    .topic {
-      text-align: left;
-      color: white;
-      font-size: 25px;
-      font-family: serif;
-    }
-
-    h1 {
-      color: white;
-      text-shadow: 8px 8px black;
-    }
-
-    p {
-      color: white;
-    }
-
-    .btn {
-      text-align: right;
-    }
-
-    button {
-      color: black;
-      font-size: 20px;
-      background-color: white;
-      height: 40px;
-      width: 100px;
-      font-family: serif;
-    }
-
-    .content {
-      font-size: 25px;
-      text-align: center;
-    }
-
-    body {
-      background-position: center;
-      background-size: 1600px 1200px;
-      background-image: url("https://media.istockphoto.com/id/496492452/photo/multi-colored-sparkler-background.jpg?b=1&s=170667a&w=0&k=20&c=H8sB37n-FpO5foPfKm3MP6OVaDTrjfgyuzhXb5Hj-2M=");
-    }
-
-    /* background-image: linear-gradient(to right top, #3833c4, #324ece, #3864d4, #4879d7, #5e8dd8, #5e89d1, #5d86c9, #5d82c2, #4667b1, #334c9e, #25318a, #1a1474); */
-  </style>
-</head>
-
-<body>
-  <nav class="top">
-
-    <div class="up">
-      <span class="topic">Photo Gallery</span>
-
-      <div class="btn">
-        {% if request.user.is_authenticated %}
-        <p class="h3 text-success">
-        <p class="text-success h3">Username : {{request.user.username}}</p>
-        <a href={% url 'Page_Reg:logout' %} type="button" class="btn"><button type="button" name="button">Log
-            Out</button></a>
-        </p>
-        {% else %}
-        <p class="text-danger h3">
-          <a href={% url 'Page_Reg:signup' %} type="button" class="btn"><button type="button" name="button">Sign
-              Up</button></a>
-          <a href={% url 'Page_Reg:login' %} type="button" class="btn"><button type="button" name="button">Log
-              In</button></a>
-          {% endif %}
-        </p>
-      </div>
-
-    </div>
-  </nav>
-
-  <div class="content">
-    <br>
-    <h1>Moment By Moment Photo Gallery</h1>
-    <p>Capturing the moments that captivate your heart</p>
-  </div>
-
-</body>
-
-</html>
+<div class="content">
+  <br>
+  <h1>Moment By Moment Photo Gallery</h1>
+  <p>Capturing the moments that captivate your heart</p>
+</div>
+{%endblock%}
