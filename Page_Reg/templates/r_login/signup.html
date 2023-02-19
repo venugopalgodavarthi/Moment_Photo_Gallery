@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <style media="screen">
+
+        .top{
+          width: 100%;
+          height: 45px;
+          text-align: justify
+          color: grey;
+          background-color: black;
+          border-style: solid;
+          border-width: 2px;
+          border-color: black;
+        }
+
+        .topic{
+          text-align: left;
+          color: white;
+          font-size: 25px;
+          font-family: serif;
+        }
+
+
+        .signup{
+            border: 1px solid #000;
+            width: 100%;
+            margin: auto;
+            /* padding: 0 5%; */
+            font-size: 18px;
+          color: white;
+          text-align: center;
+          margin: auto;
+
+
+          background-image: url("https://t4.ftcdn.net/jpg/03/39/56/99/360_F_339569980_paC2CQ0gdbRX6xrAissSGmWNjTdDaCuG.jpg");
+          <!-- background-image: linear-gradient(to right top, #2621f2, #0049f7, #0064f6, #227af0, #4f8ee7, #558adb, #5986ce, #5d82c2, #4667b1, #334c9e, #25318a, #1a1474);       -->
+        }
+
+        label{
+          font-size: 20px;
+        }
+
+        form{
+            padding: 0 40%;
+
+          text-align: left;
+        }
+
+        input{
+          height: 40px;
+          width: 300px;
+        }
+
+        button{
+          height: 50px;
+          width: 200px;
+          background-color: black;
+          color: white;
+          font-size: 20px;
+          font-family: serif;
+          margin: 0 50px;
+
+        }
+
+        h1{
+          background-color: black;
+          color:white;
+          width: 1500px;
+        }
+
+      </style>
+</head>
+<body>
+
+    <nav class="top">
+        <div class="up">
+          <span class="topic">Photo Gallery</span>
+        </div>
+    </nav>
+
+<div class="signup">
+    <h1>Sign Up</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn">Sign Up</button>
+    </form>
+</div>
+
+</body>
+</html>

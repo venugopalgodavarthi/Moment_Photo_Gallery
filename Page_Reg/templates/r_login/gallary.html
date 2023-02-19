@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        {{form}}
+        <input type="submit" value="SELECT">
+    </form>
+    {%if gallarylist %}
+    <table border="2">
+        <tr>
+            <th>IMAGES</th>
+        </tr>
+        {%for i in gallarylist%}
+        <tr>
+            <td><img src="{{i.images.url}}" height="150" , width="150"></td>
+            <td><a href="{%url 'Page_Reg:delete' i.id %}"><button>Delete</button></a></td>
+
+        </tr>
+        {%endfor%}
+    </table>
+    {%else%}
+    <h1>Images are not available</h1>
+    {%endif%}
+
+</body>
+
+</html>
